@@ -149,7 +149,7 @@ export const TrustProtocol = () => {
             <div className="relative aspect-square lg:aspect-video rounded-huge overflow-hidden border border-primary/5 shadow-2xl group">
                <Image 
                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200" 
-                 alt="Professional Context" 
+                 alt="Профессиональная рабочая среда и аналитика в металлотрейдинге" 
                  fill 
                  className="object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
                />

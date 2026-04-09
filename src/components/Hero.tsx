@@ -32,7 +32,7 @@ export const Hero = () => {
       <div className="absolute inset-0 -z-10">
         <Image 
           src="https://images.unsplash.com/photo-1504917595217-d4dc5f649771?q=80&w=2000" 
-          alt="Industrial Steel Context" 
+          alt="Промышленный склад металлопроката — фон платформы Trader X" 
           fill 
           className="object-cover opacity-50 grayscale"
           priority

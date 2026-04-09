@@ -55,7 +55,7 @@ export const FoundersRow = () => {
                 <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border border-graphite/5 bg-ghost">
                   <Image 
                     src={founder.image} 
-                    alt={founder.name} 
+                    alt={`Основатель платформы Trader X — ${founder.name}`} 
                     fill 
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />

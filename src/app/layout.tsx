@@ -22,8 +22,26 @@ const mono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Trader X — Платформа для роста в металлопроката",
-  description: "Работайте через готовую инфраструктуру действующей компании. Больше самостоятельности. Сильнее экономика.",
+  title: "Trader X — Платформа для роста в металлопрокате",
+  description: "Работайте через готовую инфраструктуру действующей компании. Больше самостоятельности. Сильнее экономика. Платформа для опытных металлотрейдеров.",
+  keywords: ["металлопрокат", "трейдинг", "платформа для продаж", "металлотрейдеры", "бизнес в металле"],
+  authors: [{ name: "Trader X Team" }],
+  openGraph: {
+    title: "Trader X — Платформа для роста в металлопрокате",
+    description: "Новая модель работы для сильных продажников в рынке металла.",
+    url: "https://traderx.io",
+    siteName: "Trader X",
+    locale: "ru_RU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Trader X — Платформа для роста в металлопрокате",
+    description: "Больше самостоятельности. Сильнее экономика.",
+  },
+  alternates: {
+    canonical: "https://traderx.io",
+  },
 };
 
 export default function RootLayout({
