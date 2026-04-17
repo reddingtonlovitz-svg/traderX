@@ -1,46 +1,44 @@
+import { Inter } from "next/font/google";
 import type { Metadata } from "next";
-import { Space_Grotesk, DM_Serif_Display, Space_Mono } from "next/font/google";
+
 import "./globals.css";
 
-const sans = Space_Grotesk({
+import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
+import { AccessModal } from "@/components/AccessModal";
+import { ModalProvider } from "@/context/ModalContext";
+
+const inter = Inter({
   variable: "--font-sans",
-  subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const serif = DM_Serif_Display({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-});
-
-const mono = Space_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "700"],
+  subsets: ["latin", "cyrillic"],
 });
 
 export const metadata: Metadata = {
-  title: "Trader X — Платформа для роста в металлопрокате",
-  description: "Работайте через готовую инфраструктуру действующей компании. Больше самостоятельности. Сильнее экономика. Платформа для опытных металлотрейдеров.",
-  keywords: ["металлопрокат", "трейдинг", "платформа для продаж", "металлотрейдеры", "бизнес в металле"],
-  authors: [{ name: "Trader X Team" }],
+  title: "Trader X | Платформа для опытных металлтрейдеров",
+  description:
+    "Trader X — экосистема для опытных металлтрейдеров: ваша база, сделки, логистика и рост в более сильной модели.",
+  keywords: [
+    "металлопрокат",
+    "металлотрейдер",
+    "платформа для продаж",
+    "b2b продажи металла",
+    "торговля металлопрокатом",
+  ],
   openGraph: {
-    title: "Trader X — Платформа для роста в металлопрокате",
-    description: "Новая модель работы для сильных продажников в рынке металла.",
-    url: "https://traderx.io",
-    siteName: "Trader X",
-    locale: "ru_RU",
+    title: "Trader X | Платформа для опытных металлтрейдеров",
+    description:
+      "Платформа для тех, кто уже умеет продавать металл и хочет работать в более сильной и выгодной модели.",
     type: "website",
+    locale: "ru_RU",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Trader X — Платформа для роста в металлопрокате",
-    description: "Больше самостоятельности. Сильнее экономика.",
+    title: "Trader X | Платформа для опытных металлтрейдеров",
+    description:
+      "Платформа для тех, кто уже умеет продавать металл и хочет работать в более сильной и выгодной модели.",
   },
   alternates: {
-    canonical: "https://traderx.io",
+    canonical: "/",
   },
 };
 
@@ -52,13 +50,23 @@ export default function RootLayout({
   return (
     <html lang="ru" className="scroll-smooth">
       <body
-        className={`${sans.variable} ${serif.variable} ${mono.variable} font-sans min-h-screen selection:bg-accent/20 selection:text-primary relative overflow-x-hidden`}
+        className={`${inter.variable} font-sans min-h-screen selection:bg-accent/20 selection:text-primary relative overflow-x-hidden`}
       >
-        <div className="noise-overlay" aria-hidden="true" />
-        {children}
+        <div className="pointer-events-none fixed inset-0 z-0 opacity-[0.02] mix-blend-multiply">
+          <svg className="h-full w-full">
+            <filter id="noiseFilter">
+              <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+          </svg>
+        </div>
+        <ModalProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <AccessModal />
+        </ModalProvider>
       </body>
     </html>
   );
 }
-
-
