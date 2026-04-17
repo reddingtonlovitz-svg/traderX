@@ -106,7 +106,7 @@ export const Hero = () => {
   }, { scope: container });
 
   return (
-    <section id="about" ref={container} className="relative min-h-[100svh] w-full flex items-center overflow-hidden pt-24 md:pt-28 pb-12 bg-accent">
+    <section id="about" ref={container} className="relative min-h-[100svh] w-full flex items-center overflow-hidden pt-32 md:pt-28 pb-12 bg-accent">
       <div className="section-container relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         <div className="hero-content lg:col-span-8 flex flex-col gap-6 md:gap-8">
           <div className="flex flex-col gap-3 md:gap-4">

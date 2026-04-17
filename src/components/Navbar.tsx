@@ -61,7 +61,7 @@ export const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-center py-6 pointer-events-none">
+    <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-center py-4 md:py-6 pointer-events-none">
       <div
         className={cn(
           "flex items-center justify-between w-[95%] max-w-7xl h-14 px-4 sm:px-8 transition-all duration-500 rounded-pill border pointer-events-auto",
