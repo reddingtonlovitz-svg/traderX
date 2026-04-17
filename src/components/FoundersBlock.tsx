@@ -75,29 +75,17 @@ export const FoundersBlock = () => {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Manifesto animations
-    gsap.from(".manifesto-content > *", {
-      x: 30,
+    // Unified enter animation for all block components
+    gsap.from([".manifesto-content > *", ".founder-card"], {
+      y: 40,
       opacity: 0,
-      stagger: 0.1,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".manifesto-section",
-        start: "top 80%",
-      },
-    });
-
-    // Founder cards animations
-    gsap.from(".founder-card", {
-      y: 50,
-      opacity: 0,
-      stagger: 0.2,
+      stagger: 0.15,
       duration: 1.2,
       ease: "power3.out",
       scrollTrigger: {
         trigger: container.current,
-        start: "top 75%",
+        start: "top 80%",
+        toggleActions: "play none none none",
       },
     });
   }, { scope: container });
@@ -120,16 +108,9 @@ export const FoundersBlock = () => {
   return (
     <section id="company" ref={container} className="relative bg-[#F9FAFB] overflow-hidden py-24 md:py-32">
       <div className="section-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-          <div className="lg:col-span-7">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full items-stretch">
-              {founders.map((founder, i) => (
-                <FounderCard key={i} {...founder} />
-              ))}
-            </div>
-          </div>
-
-          <div className="lg:col-span-5 flex flex-col justify-center manifesto-section">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+          {/* Manifesto First (Left on Desktop, Top on Mobile) */}
+          <div className="lg:col-span-5 flex flex-col justify-center order-1 lg:order-1">
             <div className="manifesto-content flex flex-col gap-10">
               <div className="relative">
                 <Quote className="absolute -top-6 -left-8 w-16 h-16 text-primary/5 -rotate-12" />
@@ -158,9 +139,18 @@ export const FoundersBlock = () => {
                 </div>
 
                 <p className="text-primary font-black uppercase text-xs md:text-sm tracking-[0.05em] leading-relaxed mt-6">
-                  Наш приоритет - доверие, понятная модель и реальная опора для роста.
+                  Наш приоритет - доверие, понятельная модель и реальная опора для роста.
                 </p>
               </div>
+            </div>
+          </div>
+
+          {/* Founders Second (Right on Desktop, Bottom on Mobile) */}
+          <div className="lg:col-span-7 order-2 lg:order-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full items-stretch">
+              {founders.map((founder, i) => (
+                <FounderCard key={i} {...founder} />
+              ))}
             </div>
           </div>
         </div>
